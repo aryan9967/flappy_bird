@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+   text-align: center;
+}
+#board{
+     
+    /* height: 100vh; */ 
+    background:url(images/flappybg.jpg) center no-repeat;
+    background-size: cover;
+}
