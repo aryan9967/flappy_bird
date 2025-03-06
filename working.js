@@ -26,7 +26,7 @@ let velocityx = -3;//pipes moving left speed
 let velocityY = 0; //bird jump speed
 let gravity=0.4;
 
-let gameover = false;
+let gameover = true;
 
 let score=0;
 
@@ -53,6 +53,8 @@ function stfunction() {
     requestAnimationFrame(update);
     setInterval(createpipes, 2000);
     document.addEventListener("keydown", movebird);
+    document.addEventListener("click", movebird);
+
 }
 function update() {
     
@@ -105,7 +107,7 @@ function update() {
         context.beginPath();
         context.rect(250, 250, 800, 100 )
         context.stroke();
-        context.fillText("Press SPACE to restart the game", 300, 300 );
+        context.fillText("Press SPACE or CLICk to restart the game", 300, 300 );
         
     }
 }
@@ -143,7 +145,7 @@ function createpipes() {
 }
 
 function movebird(e) {
-    if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyW") {
+    if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyW" || e.button == 0) {
         //jump
         velocityY = -6;
         if(gameover)
@@ -153,8 +155,7 @@ function movebird(e) {
             score = 0;
             gameover = false;
         }
-    }
-    
+    } 
 }
 
 function detectcollide(a, b){
